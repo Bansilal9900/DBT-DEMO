@@ -1,0 +1,6 @@
+packages:
+  - package: calogica/dbt_expectations
+    version: 0.10.3
+  - package: Datavault-UK/automate_dv
+    version: 0.10.2
+  

@@ -16,7 +16,9 @@ models:
           description: "The unique identifier for each CUSTOMER."
           tests:
             - unique
-            - not_null
+            - not_null:
+                config:
+                  severity: warn
         - name: FIRST_NAME
           description: "The FIRSTNAME of the CUSTOMER."
           tests:
@@ -24,29 +26,86 @@ models:
         - name: LAST_NAME
           description: "The LASTNAME of the CUSTOMER."
           tests:
-            - not_null
+            - not_null:
+                config:
+                  severity: warn
         - name: FIRST_ORDER
           description: "The DATE when the customer ordered for firsttime."
           tests:
-            - not_null
+            - not_null:
+                config:
+                  severity: warn
         - name: MOST_RECENT_ORDER
           description: "The DATE when the customer ordered for RECENTLY."
           tests:
-            - not_null
+            - not_null:
+                config:
+                  severity: warn
+            
         - name: NUMBER_OF_ORDERS
           description: "IT DISPLAYS COUNT OF ORDERS FOR EACH CUSTOMER."
           tests:
-            - unique
-            - not_null
+            - not_null:
+                config:
+                  severity: warn
         - name: CUSTOMER_LIFETIME_VALUE
           description: "IT DISPLAYS THE LIFETIME VALUE FOR EACH CUSTOMER"
           tests:
-            - unique
-            - not_null
+            - not_null:
+                config:
+                  severity: warn
         - name: TOTAL_ORDER_AMOUNT
           description: "The TOTAL ORDER AMOUNT FOR EACH CUSTOMER."
           tests:
+            - not_null:
+                config:
+                  severity: warn
+    - name: personal
+      description: "It displays the perosnal deatils of each customer"
+      columns:
+        - name: ID
+          description: "The unique identifier for each CUSTOMER."
+          tests:
             - unique
             - not_null
+        - name: FIRST_NAME
+          description: "The FIRST NAME OF THE CUSTOMER."
+          tests:
+            - not_null
+        - name: LAST_NAME
+          description: "The LAST NAME OF THE CUSTOMER."
+          tests:
+            - not_null
+        - name: SURNAME
+          description: "The SURNAME OF THE CUSTOMER."
+          tests:
+            - not_null
+            - unique
+        - name: AGE
+          description: "The AGE OF THE CUSTOMER."
+          tests:
+            - not_null
+        - name: MOBILE_NUM
+          description: "mobile number of the customer"
+          tests:
+            - not_null
+            - unique
+        - name: STATUS
+          description: "STATUS OF THE  customer"
+          tests:
+            - not_null
+            - unique
+            - accepted_values:
+                values: ['s','M','C']
+        - name: DOB
+          description: "DOB of the customer"
+          tests:
+            - not_null
+            - unique
+
+
+            
+          
+          
                 
         

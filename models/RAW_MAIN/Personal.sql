@@ -1,0 +1,1 @@
+select * from {{ ref('RAW_ANBLICKS') }}
