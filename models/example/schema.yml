@@ -21,5 +21,12 @@ models:
                 - not_null
 sources:
   - name: Property
-    database: 
+    database: GDP_PROPERTY_DB
+    schema: STG
+    tables:
+      - name: property
+
+  - name: Broker
+    database: GDP_BROKER_DB
+    schema: STG    
 
