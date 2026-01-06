@@ -1,4 +1,4 @@
 SELECT
    source_name
-FROM {{ source('config', 'MODEL_CONFIG') }} 
+FROM {{ source('Config', 'MODEL_CONFIG') }} 
 

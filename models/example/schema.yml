@@ -38,3 +38,9 @@ sources:
     tables:
       - name: property
 
+  - name: Config
+    database: GDP_PROPERTY_DB
+    schema: CONFIG
+    tables:
+      - name: MODEL_CONFIG
+
