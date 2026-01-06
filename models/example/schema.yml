@@ -28,5 +28,13 @@ sources:
 
   - name: Broker
     database: GDP_BROKER_DB
-    schema: STG    
+    schema: STG
+    tables:
+      - name: property 
+
+  - name: Property_dynamic
+    database: "{{ var('var_database_name') }}"
+    schema: "{{ var('var_schema_name') }}"
+    tables:
+      - name: property
 
