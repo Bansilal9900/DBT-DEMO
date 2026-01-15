@@ -1,0 +1,30 @@
+
+version: 2
+
+models:
+  - name: stg_zoominfo_company
+    description: "Standardized ZoomInfo company records from Bronze"
+    tests:
+      - dbt_utils.expression_is_true:
+          expression: "EMPLOYEE_COUNT >= 0"
+      - dbt_utils.expression_is_true:
+          expression: "REVENUE >= 0"
+    columns:
+      - name: WEBSITE
+        tests:
+          - dbt_utils.expression_is_true:
+              expression: "WEBSITE is null or WEBSITE like '%.%'"
+
+  - name: stg_dnb_company
+    description: "Standardized DNB company records from Bronze"
+    columns:
+      - name: DUNS_NUMBER
+        tests: [not_null, unique]
+      - name: EMPLOYEE_COUNT
+        tests:
+          - dbt_utils.expression_is_true:
+              expression: "EMPLOYEE_COUNT is null or EMPLOYEE_COUNT >= 0"
+      - name: SALES_REVENUE_USD
+        tests:
+          - dbt_utils.expression_is_true:
+              expression: "SALES_REVENUE_USD is null or SALES_REVENUE_USD >= 0"

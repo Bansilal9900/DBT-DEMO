@@ -1,0 +1,32 @@
+
+version: 2
+sources:
+  - name: bronze
+    database: GDP_CLIENT_DB
+    schema: BRONZE
+    tables:
+      - name: BRONZE_DNB_COMPANY
+        description: Dun & Bradstreet company feed (bronze layer)
+        loaded_at_field: LOAD_TIMESTAMP
+        columns:
+          - name: BRONZE_KEY
+          - name: DUNS_NUMBER
+            description: D&B DUNS identifier
+            tests: [not_null]
+          - name: BUSINESS_NAME
+          - name: PRIMARY_ADDRESS
+          - name: EMPLOYEE_TOTAL
+          - name: SALES_REVENUE_USD
+          - name: SIC_CODE
+          - name: NAICS_CODE
+          - name: YEAR_STARTED
+          - name: PARENT_DUNS
+          - name: GLOBAL_ULTIMATE_DUNS
+          - name: FAMILY_TREE_SIZE
+          - name: PAYDEX_SCORE
+          - name: CREDIT_RATING
+          - name: FINANCIAL_STRESS
+          - name: OUT_OF_BUSINESS
+          - name: RAW_JSON
+          - name: LOAD_TIMESTAMP
+          - name: MD5_HASH
