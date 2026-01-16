@@ -36,6 +36,7 @@ clean as (
     HQ_ADDRESS, HQ_CITY, HQ_STATE, HQ_COUNTRY,
     LINKEDIN_URL,
     TECHNOLOGIES,
+    {{extract_domain('WEBSITE')}} AS NORMALIZED_DOMAIN,
     {{ safe_parse_json('RAW_JSON') }} as RAW_JSON,
     LOAD_TIMESTAMP,
     MD5_HASH
