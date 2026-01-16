@@ -1,0 +1,10 @@
+
+version: 2
+
+sources:
+  - name: bronze
+    database: GDP_CLIENT_DB
+    schema: BRONZE
+    tables:
+      - name: bronze_zoominfo_company
+      - name: bronze_dnb_company

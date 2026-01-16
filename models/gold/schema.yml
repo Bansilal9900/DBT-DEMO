@@ -1,0 +1,29 @@
+version: 2
+
+models:
+  - name: dim_client
+    columns:
+      - name: client_key
+        tests: [not_null, unique]
+      - name: duns_number
+        tests:
+          - not_null
+  - name: dim_company
+    columns:
+      - name: company_key
+        tests: [not_null, unique]
+      - name: client_key
+        tests:
+          - relationships:
+              to: ref('dim_client')
+              field: client_key
+
+  - name: fact_client_snapshot
+    columns:
+      - name: snapshot_key
+        tests: [not_null, unique]
+      - name: client_key
+        tests:
+          - relationships:
+              to: ref('dim_client')
+              field: client_key

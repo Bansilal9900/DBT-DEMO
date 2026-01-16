@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: stg_client
+    columns:
+      - name: staging_key
+        tests: [not_null, unique]
+      - name: source_system
+        tests:
+          - accepted_values:
+              values: ['ZOOMINFO','DNB']
+
+  - name: client_xref
+    columns:
+      - name: xref_key
+        tests: [not_null, unique]
+      - name: client_key
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_client')
+              field: client_key
